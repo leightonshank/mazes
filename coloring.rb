@@ -1,13 +1,15 @@
 require 'colored_grid'
 require 'binary_tree'
 
-grid = ColoredGrid.new(25, 25)
-BinaryTree.on(grid)
+6.times do |n|
+  grid = ColoredGrid.new(25, 25)
+  BinaryTree.on(grid)
 
-start = grid[grid.rows / 2, grid.columns / 2]
+  start = grid[grid.rows / 2, grid.columns / 2]
 
-grid.distances = start.distances
+  grid.distances = start.distances
 
-filename = "tmp/colorized.png"
-grid.to_png.save(filename)
-puts "saved to #{filename}"
+  filename = "tmp/colorized_%02d.png" % n
+  grid.to_png.save(filename)
+  puts "saved to #{filename}"
+end
